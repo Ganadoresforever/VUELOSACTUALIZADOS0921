@@ -1,0 +1,61 @@
+export const airlinesData = [
+    "Avianca",
+    "Copa Airlines",
+    "LATAM",
+    "Iberia Airlines",
+    "Airfrance Airlines",
+    "AeroMexico Airlines",
+    "United Airlines",
+    "Continental Airlines",
+    "American Airlines",
+    "AirCanada.com",
+    "JetBlue Airways",
+    "Satena",
+    "Clic Air",
+    "Viva Aerobus",
+    "Volaris",
+    "Wingo",
+    "JetSMART",
+    "Delta Airlines",
+];
+
+export const mostViewedData = [
+    "Tiquetes Bogotá",
+    "Boletos Aéreos",
+    "Oferta Vuelos",
+    "Vuelos en Promoción",
+    "Tiquetes Nacionales",
+    "Tiquetes Oferta",
+    "Tiquetes Aéreos",
+    "Destinos",
+];
+
+export const aboutData = [
+    "Quiénes Somos",
+    "Términos y Condiciones",
+    "Acerca de Anato",
+    "Política de Privacidad",
+    "Compra Segura",
+    "Superintendencia de Industria y Comercio",
+    "Superintendencia de Transporte",
+    "Aerocivil",
+    "Contra la Pornografía Infantil",
+    "Derechos del pasajero y/o deberes del transportador",
+    "Ley Retracto y/o Desistimiento",
+    "Política de sostenibilidad",
+    "Contrato de transporte aéreo de Colombia",
+];
+
+export const resourcesData = [
+    "TiquetesBaratos | Empresas",
+    "Registra tu hotel",
+    "Promociones",
+    "Promociones a destino",
+    "Ofertas Hoteles y Paquetes",
+    "Consulte su Reserva",
+    "Contáctanos",
+    "Web Check-in",
+    "Contáctenos",
+    "Preguntas Frecuentes",
+    "Pago en Línea",
+];
