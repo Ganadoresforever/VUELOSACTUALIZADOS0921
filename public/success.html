@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tiquetes Baratos | Tiquetes, vuelos, hoteles y más</title>
+    <link rel="shortcut icon" href="./assets/svg/logo-tiquetesbaratos.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/10.1.0/jsrsasign-all-min.js"></script>
+
+    <!-- SCRIPTS -->
+    <script src="./js/functions.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/datepicker.css" />
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/tw.css" />
+</head>
+
+<body>
+    <div class="modal modal-loader">
+        <span class="loader"></span>
+    </div>
+
+    <!-- BARRA SUPERIOR -->
+    <nav class="w-full bg-white border-b border-gray-100 px-2">
+        <div class="max-w-[1248px] mx-auto flex flex-row items-center justify-between py-2">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <img width="68" height="62" src="./assets/svg/logo-tiquetesbaratos.png"
+                    class="sm:w-[68px] sm:h-[62px]" />
+            </div>
+            <!-- Acciones a la derecha (desktop) -->
+            <div class="hidden sm:flex flex-row items-end gap-6 pr-0">
+                <div class="flex items-center gap-1">
+                    <img src="./assets/svg/col_flag.avif" alt="Colombia" class="w-6 h-6 rounded-full" />
+                    <span class="text-sm text-gray-700">Español - COP</span>
+                </div>
+                <a href="#" class="text-sm text-gray-700 hover:text-blue-600">Ayuda</a>
+                <div class="flex items-center gap-1">
+                    <img src="./assets/svg/phone-call.png" alt="Teléfono" class="w-5 h-5" />
+                    <span class="text-sm text-gray-700">Para reservar <span class="font-semibold">601 743
+                            6620</span></span>
+                </div>
+                <button class="flex items-center gap-2 border border-gray-300 rounded px-3 py-1 hover:bg-gray-100">
+                    <span class="text-sm text-gray-700">Iniciar sesión</span>
+                    <img width="18px" src="./assets/svg/burger_menu.png" />
+                </button>
+            </div>
+            <!-- Menú móvil -->
+            <div class="sm:hidden flex flex-row items-center gap-2">
+                <img width="25px" src="./assets/svg/burger_menu.png" />
+            </div>
+        </div>
+    </nav>
+
+    <!-- BARRA DE MENÚ HORIZONTAL -->
+    <nav class="w-full bg-white border-b border-gray-200 hidden sm:block">
+        <div class="max-w-[1248px] mx-auto flex flex-row items-center gap-10 h-12">
+            <button class="flex flex-row items-end gap-2 group focus:outline-none">
+                <img width="24px" src="./assets/svg/plane_icon.png" class="icon-menu active" />
+                <span class="text-sm font-semibold text-blue-600 border-b-2 border-blue-600">Vuelos</span>
+            </button>
+            <button class="flex flex-row items-end gap-2 group focus:outline-none">
+                <img width="24px" src="./assets/svg/hotel_icon.png" class="icon-menu" />
+                <span class="text-sm font-semibold text-gray-700 group-hover:text-blue-600 pb-1">Hoteles</span>
+            </button>
+            <button class="flex flex-row items-end gap-2 group focus:outline-none">
+                <img width="22px" src="./assets/svg/luggage_icon.png" class="icon-menu" />
+                <span class="text-sm font-semibold text-gray-700 group-hover:text-blue-600 pb-1">Hotel + Vuelo</span>
+            </button>
+            <button class="flex flex-row items-end gap-2 group focus:outline-none">
+                <img width="22px" src="./assets/svg/disney_icon.png" class="icon-menu" />
+                <span class="text-sm font-semibold text-gray-700 group-hover:text-blue-600 pb-1">Disney</span>
+            </button>
+            <button class="flex flex-row items-end gap-2 group focus:outline-none">
+                <img width="22px" src="./assets/svg/fire_icon.png" class="icon-menu" />
+                <span class="text-sm font-semibold text-gray-700 group-hover:text-blue-600 pb-1">Ofertas</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- SIDE MENU (solo móvil) -->
+    <div class="relative px-3 mb-1 sm:px-0 sm:mb-0">
+        <div class="flex flex-row overflow-x-hidden gap-5 cc-blur sm:hidden">
+            <div class="nav__item nav__item__active">
+                <img width="18px" src="./assets/svg/plane_icon.png" />
+                <p>Vuelos</p>
+            </div>
+            <div class="nav__item">
+                <img width="18px" src="./assets/svg/hotel_icon.png" />
+                <p>Hoteles</p>
+            </div>
+            <div class="nav__item">
+                <img width="14px" src="./assets/svg/luggage_icon.png" />
+                <p>Vuelo + Hotel</p>
+            </div>
+            <div class="nav__item">
+                <img width="18px" src="./assets/svg/disney_icon.png" />
+                <p>Disney</p>
+            </div>
+            <div class="nav__item">
+                <img width="18px" src="./assets/svg/fire_icon.png" />
+                <p>Ofertas</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOOKING -->
+    <div class="relative h-full min-h-[800px]">
+        <div class="bg-[#0e61aa] min-h-[300px]"></div>
+
+        <div class="absolute top-0 right-0 w-full flex items-center justify-center px-1">
+            <div class="w-full max-w-[800px]">
+                
+                <div class="px-4 mt-10 mb-7">
+                    <p class="font-bold text-4xl text-white">!Hola!</p>
+                    <p class="font-bold text-2xl text-white">Gracias por reservar con TiquetesBaratos.com</p>
+                    <p class="text-md text-white">Tu reservación con número <b id="label-booking-id">133186137</b> se encuentra confirmada y su pago está en proceso de validación.</p>
+                </div>
+
+
+                <div class="bg-white shadow-lg rounded-2xl pt-[50px] px-5 pb-[40px]">
+                    <div class="flex flex-col md:flex-row md:justify-between">
+                        <div>
+                            <div class="flex flex-row items-center gap-1">
+                                <img src="./assets/svg/plane_blue_right.png" width="30px">
+                                <p class="text-[#0e61aa] text-3xl font-bold">Vuelo de ida</p>
+                            </div>
+                            <p id="destination-flight-go"  class="font-bold text-gray-800 mt-1">Bogotá - Cali</p>
+                            <p>Fecha de salida: <span id="schedule-flight-go" class="font-bold">23 jul 25 06:00 hrs</span></p>
+                            <p>Pasajeros: <span id="passengers-flight-go" class="font-bold">2 adultos, 1 niño</span></p>
+                            <p>Aerolínea: <span id="airline-flight-go" class="font-bold">Avianca</span></p>
+
+                            <!-- Agregar si hay vuelo de regreso -->
+                            <div id="container-flight-back" class="hidden">
+                                <div class="flex flex-row items-center gap-1 mt-10">
+                                    <img src="./assets/svg/plane_blue_left.png" width="30px">
+                                    <p class="text-[#0e61aa] text-3xl font-bold">Vuelo de regreso</p>
+                                </div>
+                                <p id="destination-flight-back"  class="font-bold text-gray-800 mt-1">Cali - Bogotá</p>
+                                <p>Fecha de salida: <span id="schedule-flight-back" class="font-bold">25 jul 25 06:00 hrs</span></p>
+                                <p>Pasajeros: <span id="passengers-flight-back" class="font-bold">2 adultos, 1 niño</span></p>
+                                <p>Aerolínea: <span id="airline-flight-back" class="font-bold">Latam</span></p>
+                            </div>
+                        </div>
+
+                        <img src="./assets/svg/plane.svg">
+                    </div>
+
+                    <hr class="mt-10 mb-4">
+
+                    <p class="text-gray-800 text-xs">Te enviamos un correo con la información de tu reservación al siguiente correo: <b id="label-email">tiquetesbaratos@gmail.com</b> En caso de no recibir el correro electrónico de tu reservación por favor comunicate al telefóno: (601)7436620</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer class="bg-[#003b98] px-5 py-10 text-white">
+        <!-- Contenedor Principal -->
+        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between sm:max-w-screen-xl sm:mx-auto">
+
+            <!-- IZQUIERDA: Logo y Redes Sociales -->
+            <div class="flex flex-col items-center sm:items-start sm:w-1/4 mb-8 sm:mb-0">
+                <img width="100px" src="./assets/svg/tb_icon.png" class="mb-6" />
+
+                <!-- Redes Sociales SOLO en pantallas grandes -->
+                <div class="hidden sm:block">
+                    <p class="mb-2">¡Síguenos en nuestras redes!</p>
+                    <img width="130px" src="./assets/svg/redes_icon.png" />
+                    <p class="mt-2 mb-1">¡Comunícate con nosotros!</p>
+                    <img width="90px" src="./assets/svg/canales_icon.png" />
+                </div>
+            </div>
+
+            <!-- DERECHA: Contenido -->
+            <div class="flex flex-col items-center sm:items-start sm:w-3/4">
+
+                <!-- Redes Sociales en móviles -->
+                <div class="mb-4 text-center sm:hidden">
+                    <p class="mb-2">¡Síguenos en nuestras redes!</p>
+                    <img width="130px" src="./assets/svg/redes_icon.png" />
+                    <p class="mt-2 mb-1">¡Comunícate con nosotros!</p>
+                    <img width="90px" src="./assets/svg/canales_icon.png" />
+                </div>
+
+                <!-- Grid en pantallas grandes -->
+                <div class="hidden sm:grid sm:grid-cols-4 sm:gap-10 sm:mt-8 sm:w-full">
+                    <div>
+                        <p class="font-bold mb-2">Aerolíneas Destacadas</p>
+                        <ul class="space-y-4 text-sm">
+                            <li>Avianca</li>
+                            <li>Copa Airlines</li>
+                            <li>LATAM</li>
+                            <li>Iberia Airlines</li>
+                            <li>Airfrance Airlines</li>
+                            <li>AeroMexico Airlines</li>
+                            <li>United Airlines</li>
+                            <li>Continental Airlines</li>
+                            <li>American Airlines</li>
+                            <li>AirCanada.com</li>
+                            <li>JetBlue Airways</li>
+                            <li>Satena</li>
+                            <li>Clic Air</li>
+                            <li>Viva Aerobus</li>
+                            <li>Volaris</li>
+                            <li>Wingo</li>
+                            <li>JetSMART</li>
+                            <li>Delta Airlines</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="font-bold mb-2">Los más Vistos</p>
+                        <ul class="space-y-4 text-sm">
+                            <li>Tiquetes Bogotá</li>
+                            <li>Boletos Aéreos</li>
+                            <li>Oferta Vuelos</li>
+                            <li>Vuelos en Promoción</li>
+                            <li>Tiquetes Nacionales</li>
+                            <li>Tiquetes Oferta</li>
+                            <li>Tiquetes Aéreos</li>
+                            <li>Destinos</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="font-bold mb-2">Sobre tiquetesbaratos.com</p>
+                        <ul class="space-y-4 text-sm">
+                            <li>Quiénes Somos</li>
+                            <li>Términos y Condiciones</li>
+                            <li>Acerca de Anato</li>
+                            <li>Política de Privacidad</li>
+                            <li>Compra Segura</li>
+                            <li>Superintendencia de Industria y Comercio</li>
+                            <li>Superintendencia de Transporte</li>
+                            <li>Aerocivil</li>
+                            <li>Contra la Pornografía Infantil</li>
+                            <li>Derechos del pasajero y/o deberes del transportador</li>
+                            <li>Ley Retracto y/o Desistimiento</li>
+                            <li>Política de sostenibilidad</li>
+                            <li>Contrato de transporte aéreo de Colombia</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="font-bold mb-2">Recursos</p>
+                        <ul class="space-y-4 text-sm">
+                            <li>TiquetesBaratos | Empresas</li>
+                            <li>Registra tu hotel</li>
+                            <li class="font-bold">Promociones</li>
+                            <li>Promociones a destino</li>
+                            <li>Ofertas Hoteles y Paquetes</li>
+                            <li>Consulte su Reserva</li>
+                            <li class="font-bold">Contáctanos</li>
+                            <li>Web Check-in</li>
+                            <li class="font-bold">Contáctenos</li>
+                            <li>Preguntas Frecuentes</li>
+                            <li class="font-bold">Pago en Línea</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Acordeones móviles -->
+                <div class="w-full sm:hidden">
+                    <!-- Acordeón: Aerolíneas Destacadas -->
+                    <button onclick="toggleMenu('menu-aerolineas')"
+                        class="w-full py-3 flex justify-between items-center border-b border-white">
+                        <p class="font-semibold">Aerolíneas Destacadas</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-down transition-transform duration-300" id="icon-aerolineas"
+                            viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </button>
+                    <ul id="menu-aerolineas" class="hidden flex flex-col gap-4 pl-4 pb-3 text-sm">
+                        <li>Avianca</li>
+                        <li>Copa Airlines</li>
+                        <li>LATAM</li>
+                        <li>Iberia Airlines</li>
+                        <li>Airfrance Airlines</li>
+                        <li>AeroMexico Airlines</li>
+                        <li>United Airlines</li>
+                        <li>Continental Airlines</li>
+                        <li>American Airlines</li>
+                        <li>AirCanada.com</li>
+                        <li>JetBlue Airways</li>
+                        <li>Satena</li>
+                        <li>Clic Air</li>
+                        <li>Viva Aerobus</li>
+                        <li>Volaris</li>
+                        <li>Wingo</li>
+                        <li>JetSMART</li>
+                        <li>Delta Airlines</li>
+                    </ul>
+
+                    <!-- Acordeón: Los más Vistos -->
+                    <button onclick="toggleMenu('menu-vistos')"
+                        class="w-full py-3 flex justify-between items-center border-b border-white">
+                        <p class="font-semibold">Los más Vistos</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-down transition-transform duration-300" id="icon-vistos"
+                            viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </button>
+                    <ul id="menu-vistos" class="hidden flex flex-col gap-2 pl-4 pb-3 text-sm">
+                        <li>Tiquetes Bogotá</li>
+                        <li>Boletos Aéreos</li>
+                        <li>Oferta Vuelos</li>
+                        <li>Vuelos en Promoción</li>
+                        <li>Tiquetes Nacionales</li>
+                        <li>Tiquetes Oferta</li>
+                        <li>Tiquetes Aéreos</li>
+                        <li>Destinos</li>
+                    </ul>
+
+                    <!-- Acordeón: Sobre -->
+                    <button onclick="toggleMenu('menu-sobre')"
+                        class="w-full py-3 flex justify-between items-center border-b border-white">
+                        <p class="font-semibold">Sobre tiquetesbaratos.com</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-down transition-transform duration-300" id="icon-sobre"
+                            viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </button>
+                    <ul id="menu-sobre" class="hidden flex flex-col gap-2 pl-4 pb-3 text-sm">
+                        <li>Quiénes Somos</li>
+                        <li>Términos y Condiciones</li>
+                        <li>Acerca de Anato</li>
+                        <li>Política de Privacidad</li>
+                        <li>Compra Segura</li>
+                        <li>Superintendencia de Industria y Comercio</li>
+                        <li>Superintendencia de Transporte</li>
+                        <li>Aerocivil</li>
+                        <li>Contra la Pornografía Infantil</li>
+                        <li>Derechos del pasajero y/o deberes del transportador</li>
+                        <li>Ley Retracto y/o Desistimiento</li>
+                        <li>Política de sostenibilidad</li>
+                        <li>Contrato de transporte aéreo de Colombia</li>
+                    </ul>
+
+                    <!-- Acordeón: Recursos -->
+                    <button onclick="toggleMenu('menu-recursos')"
+                        class="w-full py-3 flex justify-between items-center border-b border-white">
+                        <p class="font-semibold">Recursos</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-chevron-down transition-transform duration-300" id="icon-recursos"
+                            viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </button>
+                    <ul id="menu-recursos" class="hidden flex flex-col gap-2 pl-4 pb-3 text-sm">
+                        <li>TiquetesBaratos | Empresas</li>
+                        <li>Registra tu hotel</li>
+                        <li class="font-bold">Promociones</li>
+                        <li>Promociones a destino</li>
+                        <li>Ofertas Hoteles y Paquetes</li>
+                        <li>Consulte su Reserva</li>
+                        <li class="font-bold">Contáctanos</li>
+                        <li>Web Check-in</li>
+                        <li class="font-bold">Contáctenos</li>
+                        <li>Preguntas Frecuentes</li>
+                        <li class="font-bold">Pago en Línea</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Línea divisoria -->
+        <hr class="my-8 border-t border-white" />
+
+        <!-- Textos legales -->
+        <p class="text-sm text-center mt-10">
+            TiquetesBaratos - PRICE RES S.A.S. NIT. 900.474.794-8 , Calle 97A # 8-10
+            Of 204, Bogotá D.C., Bogotá – Colombia, Teléfonos: 601 743 0044. Todos
+            los derechos reservados. Registro Nacional de Turismo No. 44091.
+            soportepqrco@pricetravel.com
+        </p>
+        <p class="text-sm text-center mt-5">
+            En desarrollo de lo dispuesto en el artículo 17 de la ley 679 de 2001,
+            la agencia rechaza la explotación, la pornografía, el turismo sexual y
+            demás formas de abuso sexual con menores, que son sancionados penal y
+            administrativamente conforme a las leyes colombianas.
+        </p>
+    </footer>
+
+    <script>
+        function toggleMenu(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById("icon-" + id.split("menu-")[1]);
+            const isHidden = content.classList.contains("hidden");
+            content.classList.toggle("hidden");
+            icon.classList.toggle("rotate-180", isHidden);
+        }
+    </script>
+
+
+
+
+
+    <!-- SCRIPTS -->
+    <script src="./js/success.js"></script>
+</body>
+
+</html>
